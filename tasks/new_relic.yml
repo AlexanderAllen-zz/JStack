@@ -1,0 +1,25 @@
+- name: Add New Relic repository
+  sudo: yes
+  #command: 'echo deb http://apt.newrelic.com/debian/ newrelic non-free >> /etc/apt/sources.list.d/newrelic.list'
+  apt_repository: repo='deb http://apt.newrelic.com/debian newrelic non-free' state=present
+
+- name: Authenticate New Relic repository
+  sudo: yes
+  apt_key: url=https://download.newrelic.com/548C16BF.gpg state=present validate_certs=no
+
+- name: Update Apt
+  sudo: yes
+  apt: update_cache=yes
+
+- name: Install New Relic package
+  sudo: yes
+  apt: name=newrelic-php5 state=present
+
+- name: Configure New Relic
+  sudo: yes
+  ini_file: option={{item.option}} value={{item.value}} section=newrelic dest={{ liara_php_conf_dir }}/newrelic.ini
+  notify: Restart Apache
+  with_items:
+    - { option: newrelic.enabled, value: true }
+    - { option: newrelic.license, value: "{{ liara_new_relic_license }}" }
+    - { option: newrelic.appname, value: "{{ liara_project }}" }

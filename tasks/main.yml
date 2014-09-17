@@ -1,0 +1,5 @@
+---
+- include: new_relic.yml
+  when: liara_new_relic_license != ""
+- include: valgrind.yml
+- include: memprof.yml

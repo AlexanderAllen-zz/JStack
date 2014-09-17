@@ -1,0 +1,14 @@
+  # Valgrind/massif, low level memory profiler.
+- name: Download Valgrind source
+  command: wget http://valgrind.org/downloads/valgrind-3.9.0.tar.bz2 chdir={{ liara_temp_dir }} creates=/usr/local/bin/valgrind
+
+- name: Extract Valgrind
+  command: tar -xjf valgrind-3.9.0.tar.bz2 chdir={{ liara_temp_dir }} creates=/usr/local/bin/valgrind
+
+- name: Compile Valgrind source
+  sudo: yes
+  shell: ./configure && make chdir={{ liara_temp_dir }}/valgrind-3.9.0 creates=/usr/local/bin/valgrind
+
+- name: Install Valgrind
+  sudo: yes
+  command: make install chdir={{ liara_temp_dir }}/valgrind-3.9.0 creates=/usr/local/bin/valgrind

@@ -1,0 +1,21 @@
+# Install Python 2.7 from sauce.
+---
+- name: Download Python
+  sudo: no
+  command: wget http://python.org/ftp/python/2.7.5/Python-2.7.5.tgz creates=/usr/local/bin/python
+
+- name: Extract Python
+  sudo: no
+  command: tar -xzf Python-2.7.5.tgz creates=/usr/local/bin/python
+
+- name: Configure Python
+  sudo: no
+  command: ./configure chdir=Python-2.7.5 creates=/usr/local/bin/python
+
+- name: Make Python
+  sudo: no
+  command: make chdir=Python-2.7.5 creates=/usr/local/bin/python
+
+- name: Install Python
+  sudo: yes
+  command: make install chdir=Python-2.7.5 creates=/usr/local/bin/python

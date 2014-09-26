@@ -11,7 +11,7 @@
 
 - name: Install Memprof
   sudo: yes
-  command: pecl install memprof creates={{ liara_php_conf_dir }}/memprof.so
+  command: pecl install memprof creates={{ liara_php_mod_dir }}/memprof.so
 
 - name: Enable Memprof
   sudo: yes

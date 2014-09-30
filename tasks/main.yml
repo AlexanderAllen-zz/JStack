@@ -1,5 +1,5 @@
 ---
-- name: Install Ubuntu dependencies
+- name: Install build dependencies
   sudo: yes
   yum: name={{ item }} state=installed
   when: ansible_os_family == 'Ubuntu'
@@ -14,22 +14,11 @@
     - build-essential
     - libpcre3-dev
     - g++
-    # pyton deps @TODO make a separate repo for python plz.
-    - libreadline-gplv2-dev
-    - libncursesw5-dev
-    - libssl-dev
-    - libsqlite3-dev
-    - tk-dev
-    - libgdbm-dev
-    - libc6-dev
-    - libbz2-dev
 
-# wget http://python.org/ftp/python/2.7.5/Python-2.7.5.tgz
-# http://askubuntu.com/questions/101591/how-do-i-install-python-2-7-2-on-ubuntu
-- include: python.yml
 - include: node.yml
+- include: node-cli-tools.yml
 
-#
+# ?
 #* GCC 4.2 or newer
 #* G++ 4.2 or newer
 ##* Python 2.6 or 2.7

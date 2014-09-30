@@ -1,0 +1,29 @@
+# Node tools !!!
+---
+- name: Install Bower
+  sudo: yes
+  command: npm install -g bower
+
+# Ember JS!!
+# http://www.ember-cli.com/#overview
+
+- name: Install Ember.js CLI
+  sudo: yes
+  command: npm install -g ember-cli
+
+- name: Install Bower
+  sudo: yes
+  command: npm install -g ember-cli
+
+- name: Install PhantomJS
+  sudo: yes
+  command: npm install -g phantomjs
+
+- name: Create HelloWolrd Ember App
+  sudo: no
+  command: ember new ember-hello-world
+
+# http://localhost:4200
+- name: Start HelloWolrd Ember App
+  sudo: no
+  command: ember server chdir=ember-hello-world

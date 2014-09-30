@@ -1,12 +1,12 @@
-Liara/Benchmarking
+AlexanderAllen/JavaScriptDevelopment
 =============
 
-Ansible role for installing various LAMP benchmarking and monitoring tools.
+Ansible role JavaScript development using Node.js and various front-end libraries.
 
 Requirements
 ------------
 
-- PHP
+- Ubuntu
 
 Role Variables
 --------------

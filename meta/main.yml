@@ -1,14 +1,11 @@
 ---
 galaxy_info:
   author: Richard Alexander Allen
-  description: Ansible role for installing various LAMP benchmarking and monitoring tools.
+  description: Ansible role JavaScript development using Node.js and various front-end libraries.
   license: GPLv2
   min_ansible_version: 1.2
 
   categories:
   - development
   - web
-  - monitoring
-
-dependencies:
-  - AlexanderAllen.Liara
+  - javascript

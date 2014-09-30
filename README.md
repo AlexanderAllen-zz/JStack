@@ -8,23 +8,11 @@ Requirements
 
 - Ubuntu
 
-Role Variables
---------------
-
-This role inherits from `AlexanderAllen.Liara` various PHP configuration variables.
-
-Dependencies
-------------
-
-This role depends on `AlexanderAllen.Liara` role for various PHP configuration variables.
-
-Example Playbook
+Installation
 ----------------
 
-    - hosts: webservers
-      roles:
-         - { role: AlexanderAllen.Liara }
-         - { role: AlexanderAllen.Liara-Benchmarking }
+    sudo apt-get install ansible;
+    ansible-galaxy install AlexanderAllen.JStack;
 
 License
 -------

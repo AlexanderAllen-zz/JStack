@@ -1,26 +1,26 @@
 # Installer for node.js
----
 #https://github.com/joyent/node.git
+---
 - name: Download Node.js source
   sudo: no
-  command: git clone https://github.com/joyent/node.git node
+  command: git clone https://github.com/joyent/node.git node chdir=/tmp
 
 - name: Configure Node.js
   sudo: no
-  command: ./configure chdir=node
+  command: ./configure chdir=/tmp/node
 
 - name: Build Node.js
   sudo: no
-  command: make chdir=node
+  command: make chdir=/tmp/node
 
 - name: Run Node.js tests prior to install
   sudo: no
-  command: make test
+  command: make test chdir=/tmp/node
 
 - name: Build Node.js documentation
   sudo: yes
-  command: make doc chdir=node
+  command: make doc chdir=/tmp/node
 
 - name: Install Node.js
   sudo: yes
-  command: make install chdir=node
+  command: make install chdir=/tmp/node
